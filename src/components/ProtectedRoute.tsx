@@ -9,10 +9,10 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (cookies.token && pathname == "/login") {
-      navigate("/");
+      navigate("/", { state: { from: "/protectedRoute" } });
     }
     if (!cookies.token && pathname == "/app") {
-      navigate("/login");
+      navigate("/login", { state: { from: "/protectedRoute" } });
     }
   }, [pathname, cookies.token]);
 

@@ -1,30 +1,37 @@
 import { useState } from "react";
 
-import { BottomSheet } from "react-spring-bottom-sheet";
-import "react-spring-bottom-sheet/dist/style.css";
+import Map from "../features/map/Map";
+import RideNav from "../features/ride/RideNav";
+import RideForm from "../features/ride/RideForm";
+import MapProvider from "../context/MapContext";
 
 function Ride() {
-  const [open, setOpen] = useState(true);
+  const [expandMap, setExpandMap] = useState(false);
+
+  // function handleExpandMap() {
+  //   if (!sheetRef?.current) return;
+  //   sheetRef.current.snapTo(({ minHeight }) => {
+  //     console.log(minHeight);
+  //     return minHeight;
+  //   });
+  // }
 
   return (
-    <>
-      <button onClick={() => setOpen((s) => !s)}>sheet toggle</button>
-      <BottomSheet
-        blocking={false}
-        open={open}
-        onSpringStart={async (event) => {
-          console.log(event.type);
-        }}
-        snapPoints={({ minHeight, maxHeight }) => [
-          minHeight,
-          0.5 * maxHeight,
-          maxHeight,
-        ]}
-        className=" bg-red-400 [&_div[data-rsbs-header]]:cursor-grab "
-      >
-        <h1>hey there</h1>
-      </BottomSheet>
-    </>
+    <section>
+      <MapProvider>
+        <RideNav />
+        <div className="min-h-screen lg:container">
+          <div className="flex md:flex-row flex-col-reverse md:justify-center justify-end h-screen items-center gap-2">
+            <div className="md:w-96 w-full flex px-7 py-4">
+              <RideForm />
+            </div>
+            <div className="h-1/2 md:h-full w-full md:py-8 md:px-5">
+              <Map />
+            </div>
+          </div>
+        </div>
+      </MapProvider>
+    </section>
   );
 }
 

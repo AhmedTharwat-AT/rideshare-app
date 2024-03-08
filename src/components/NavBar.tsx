@@ -39,13 +39,17 @@ function NavBar() {
           <li>
             <NavLink to="/ride">ride</NavLink>
           </li>
-          {cookies.token ? (
-            <li className="ms-auto">{t(`greeting`, { name: "ahmed" })}</li>
-          ) : (
-            <li>
-              <NavLink to="/login">login</NavLink>
-            </li>
-          )}
+          <li className="ms-auto">
+            {cookies.token ? (
+              t(`greeting`, { name: "ahmed" })
+            ) : (
+              <>
+                <NavLink to="/login">login</NavLink>
+                <span className="px-2">|</span>
+                <NavLink to="/signup">Sign up</NavLink>
+              </>
+            )}
+          </li>
         </ul>
       </div>
     </nav>
