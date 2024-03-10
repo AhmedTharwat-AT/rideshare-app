@@ -2,8 +2,8 @@ import { PiSpinnerGap } from "react-icons/pi";
 
 function MiniSpinner() {
   return (
-    <div>
-      <PiSpinnerGap />
+    <div className="w- items-center flex">
+      <PiSpinnerGap className="mx-auto animate-spin" />
     </div>
   );
 }

@@ -35,7 +35,8 @@ function Map() {
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
 
-        <UserMarker />
+        {/* need to delay user marker */}
+        {/* <UserMarker /> */}
         <PickMarker />
         <DropMarker />
         <RoutePath />

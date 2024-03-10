@@ -11,10 +11,12 @@ function useFetchAddress(type: "pick" | "drop") {
   const [searchParams, setSearchParams] = useSearchParams();
   const param = searchParams.get(type)
     ? JSON.parse(searchParams.get(type) as string).label
+      ? JSON.parse(searchParams.get(type) as string).label
+      : ""
     : "";
   const [address, setAddress] = useState<string>(param);
   const [showResults, setShowResults] = useState(false);
-  const [disabled, setDisabled] = useState(true);
+  const [disabled, setDisabled] = useState(false);
 
   const [delayedAdd] = useDebounce(address, 1000);
 

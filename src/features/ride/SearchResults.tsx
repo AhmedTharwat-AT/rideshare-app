@@ -18,7 +18,7 @@ function SearchResults({ results, onClick, loading, setShowResults }: Props) {
       ref={ref}
       className="absolute top-full z-50 bg-gray-100 text-sm flex flex-col gap-1 overflow-y-auto w-full left-0 px-2 py-3 max-h-52 "
     >
-      {true ? (
+      {loading ? (
         <MiniSpinner />
       ) : results ? (
         results?.map((result) => (

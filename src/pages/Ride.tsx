@@ -4,6 +4,7 @@ import Map from "../features/map/Map";
 import RideNav from "../features/ride/RideNav";
 import RideForm from "../features/ride/RideForm";
 import MapProvider from "../context/MapContext";
+import RouteSummary from "../features/ride/RouteSummary";
 
 function Ride() {
   const [expandMap, setExpandMap] = useState(false);
@@ -22,7 +23,8 @@ function Ride() {
         <RideNav />
         <div className="min-h-screen lg:container">
           <div className="flex md:flex-row flex-col-reverse md:justify-center justify-end h-screen items-center gap-2">
-            <div className="md:w-96 w-full flex px-7 py-4">
+            <div className="md:w-96 w-full flex flex-col gap-3 px-7 py-4">
+              <RouteSummary />
               <RideForm />
             </div>
             <div className="h-1/2 md:h-full w-full md:py-8 md:px-5">

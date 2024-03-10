@@ -7,6 +7,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
+import Spinner from "./components/Spinner";
 
 const Ride = lazy(() => import("./pages/Ride"));
 
@@ -22,7 +23,7 @@ function App() {
             <Route
               path="ride"
               element={
-                <Suspense fallback={<h1>loading...</h1>}>
+                <Suspense fallback={<Spinner />}>
                   <Ride />
                 </Suspense>
               }

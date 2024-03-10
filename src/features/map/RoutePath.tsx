@@ -6,7 +6,7 @@ import L from "leaflet";
 function RoutePath() {
   const map = useMap();
   const routeAdded = useRef<L.Routing.Control>();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const pick = searchParams.get("pick") || "";
   const drop = searchParams.get("drop") || "";
 
@@ -35,13 +35,19 @@ function RoutePath() {
         show: false,
       }).addTo(map);
 
-      // route.on("routeselected", (e) => {
-      //   console.log(e);
-      // });
+      route.on("routeselected", (e) => {
+        searchParams.set("distance", e.route.summary.totalDistance);
+        searchParams.set("time", e.route.summary.totalTime);
+        setSearchParams(searchParams);
+      });
       routeAdded.current = route;
     } else if ((!pick || !drop) && routeAdded.current) {
       //remove the route if one address is removed
+      console.log("removed");
       routeAdded.current.remove();
+      searchParams.delete("distance");
+      searchParams.delete("time");
+      setSearchParams(searchParams);
     }
   }, [pick, drop]);
 
