@@ -1,0 +1,40 @@
+{
+  "driver": [
+    {
+      "id": 0,
+      "name": "ali hossam",
+      "coords": [31.0549151, 31.380243],
+      "free": true
+    },
+    {
+      "id": 1,
+      "name": "Sarah Johnson",
+      "coords": [31.059267, 31.393783],
+      "free": true
+    },
+    {
+      "id": 2,
+      "name": "Juan Perez",
+      "coords": [31.057496, 31.368915],
+      "free": true
+    },
+    {
+      "id": 3,
+      "name": "Marta Silva",
+      "coords": [31.048298, 31.381703],
+      "free": true
+    },
+    {
+      "id": 4,
+      "name": "mark smith",
+      "coords": [31.448298, 31.351703],
+      "free": true
+    },
+    {
+      "id": 5,
+      "name": "john wick",
+      "coords": [32.048298, 31.481703],
+      "free": true
+    }
+  ]
+}

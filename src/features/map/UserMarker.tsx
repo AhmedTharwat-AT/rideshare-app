@@ -12,6 +12,7 @@ function UserMarker() {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
           const { latitude, longitude } = pos.coords;
+          console.log({ latitude, longitude });
           map.setView({ lat: latitude, lng: longitude }, 16);
           setUserLocation([latitude, longitude]);
         },

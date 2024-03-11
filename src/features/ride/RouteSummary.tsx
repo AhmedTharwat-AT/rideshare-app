@@ -6,8 +6,10 @@ export default function RouteSummary() {
   const [searchParams] = useSearchParams();
   const distance = searchParams.get("distance") || "";
   const time = searchParams.get("time") || "";
-  console.log(distance);
-  if (!distance || !time) return null;
+  const pick = searchParams.get("pick") || "";
+  const drop = searchParams.get("drop") || "";
+
+  if (!distance || !time || !pick || !drop) return null;
 
   return (
     <div className="flex gap-5 text-gray-700 justify-center">

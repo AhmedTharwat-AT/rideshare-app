@@ -36,7 +36,7 @@ function Map() {
         />
 
         {/* need to delay user marker */}
-        {/* <UserMarker /> */}
+        <UserMarker />
         <PickMarker />
         <DropMarker />
         <RoutePath />
