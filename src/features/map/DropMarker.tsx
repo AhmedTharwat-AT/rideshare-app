@@ -20,12 +20,12 @@ function DropMarker() {
   useEffect(() => {
     if (!markerRef.current && !drop) return;
     if (!markerRef.current && drop) {
-      const { lat, lng } = JSON.parse(drop).coords;
+      const [lat, lng] = JSON.parse(drop).coords;
       if (pick) {
         const pickCoords = JSON.parse(pick).coords;
         map.fitBounds([
           [lat, lng],
-          [pickCoords.lat, pickCoords.lng],
+          [pickCoords[0], pickCoords[1]],
         ]);
       } else {
         map.fitBounds([

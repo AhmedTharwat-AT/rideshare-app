@@ -1,5 +1,5 @@
 import { OpenStreetMapProvider } from "leaflet-geosearch";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
 import { useDebounce } from "use-debounce";
@@ -47,7 +47,7 @@ function useFetchAddress(type: "pick" | "drop") {
     setShowResults(false);
     searchParams.set(
       type,
-      JSON.stringify({ label: result.label, coords: { lat, lng } })
+      JSON.stringify({ label: result.label, coords: [lat, lng] })
     );
     setSearchParams(searchParams);
   }
@@ -58,6 +58,14 @@ function useFetchAddress(type: "pick" | "drop") {
     searchParams.delete(type);
     setSearchParams(searchParams);
   }
+
+  //remove address from input if its removed from search params
+  useEffect(() => {
+    if (!param) {
+      setAddress("");
+      setShowResults(false);
+    }
+  }, [param]);
 
   return {
     data,

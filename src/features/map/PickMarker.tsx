@@ -21,7 +21,7 @@ function PickMarker() {
     try {
       if (!markerRef.current && !pick) return;
       if (!markerRef.current && pick) {
-        const { lat, lng } = JSON.parse(pick).coords;
+        const [lat, lng] = JSON.parse(pick).coords;
         if (drop) {
           const dropCoords = JSON.parse(drop).coords;
           map.fitBounds([

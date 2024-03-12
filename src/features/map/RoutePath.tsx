@@ -16,8 +16,8 @@ function RoutePath() {
       const dropCoords = JSON.parse(drop).coords;
       const plan = L.Routing.plan(
         [
-          new L.LatLng(pickCoords.lat, pickCoords.lng),
-          new L.LatLng(dropCoords.lat, dropCoords.lng),
+          new L.LatLng(pickCoords[0], pickCoords[1]),
+          new L.LatLng(dropCoords[0], dropCoords[1]),
         ],
         {
           addWaypoints: false,
@@ -38,12 +38,11 @@ function RoutePath() {
       route.on("routeselected", (e) => {
         searchParams.set("distance", e.route.summary.totalDistance);
         searchParams.set("time", e.route.summary.totalTime);
-        setSearchParams(searchParams);
+        setSearchParams(searchParams, { replace: true });
       });
       routeAdded.current = route;
     } else if ((!pick || !drop) && routeAdded.current) {
       //remove the route if one address is removed
-      console.log("removed");
       routeAdded.current.remove();
       searchParams.delete("distance");
       searchParams.delete("time");
