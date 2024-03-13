@@ -1,10 +1,4 @@
-import {
-  MapContainer,
-  Marker,
-  TileLayer,
-  Popup,
-  ZoomControl,
-} from "react-leaflet";
+import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 
 import UserMarker from "./UserMarker";
 

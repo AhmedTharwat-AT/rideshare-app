@@ -4,12 +4,6 @@ import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
 import { AxiosInstance } from "axios";
 import checkWithinRadius from "../../../utils/helpers";
 
-// checkWithinRadius(
-//   refCoords: [number, number],
-//   targetCoords: [number, number],
-//   radius: number = 10
-// )
-
 async function getDrivers(coords: [number, number], axios: AxiosInstance) {
   const res = await axios.get("/driver");
   if (res.data) {
@@ -19,7 +13,6 @@ async function getDrivers(coords: [number, number], axios: AxiosInstance) {
     return results;
   }
   return null;
-  // if (res.data) return [...res.data];
 }
 
 function useDriversMarkers() {
@@ -56,8 +49,6 @@ function useDriversMarkers() {
   } else {
     result = [];
   }
-
-  console.log("result : ", result);
 
   return result;
 }
